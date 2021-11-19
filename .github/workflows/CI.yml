@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: greet
+        if: github.event.inputs.boolean == true
         run: | 
           echo "boolean is ${{ github.event.inputs.boolean }}"
           echo "choice is ${{ github.event.inputs.choice }}"
