@@ -3,9 +3,6 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: environment
-        description: Select the environment
       boolean:
         type: boolean
         description: True or False
@@ -25,6 +22,5 @@ jobs:
 
       - name: greet
         run: | 
-          echo "environment is ${{ github.event.inputs.environment }}"
           echo "boolean is ${{ github.event.inputs.boolean }}"
           echo "choice is ${{ github.event.inputs.choice }}"
