@@ -49,3 +49,9 @@ jobs:
       with:
         name: xray-packages
         path: ${{ env.xray }}
+    - name: Upload firmware to wenshushu
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wss --block 2621440 -s -p 64 --no-progress ${xray} 2>&1 | tee wenshushu.log
+        echo "::warning file=wenshushu.cn::$(cat wenshushu.log | grep https | cut -f3 -d" ")"
+        echo "Wenshushu_URL=$(cat wenshushu.log | grep https | cut -f3 -d" ")" >> $GITHUB_ENV
