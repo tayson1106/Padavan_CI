@@ -35,7 +35,7 @@ on:
         description: 'whether to upload firmware to wettransfer'
         default: 'true'
 env:
-  REPOSITORY_URL: https://github.com/MeIsReallyBa/padavan-4.4.git
+  REPOSITORY_URL: https://github.com/padavanonly/padavan-4.4.git
   TOOLCHAIN_URL: https://github.com/hanwckf/padavan-toolchain/releases/download/linux-4.4-v1.0/mipsel-linux-uclibc.tar.xz
   WORK_PATH: /opt/padavan-4.4
   TIME_ZONE: Asia/Shanghai
@@ -205,5 +205,5 @@ jobs:
       uses: c-hive/gha-remove-artifacts@v1.2.0
       if: steps.organizer.outputs.status == 'success'
       with:
-        age: '1 day'
+        age: '7 day'
         skip-recent: 5
